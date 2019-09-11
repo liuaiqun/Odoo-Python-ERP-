@@ -25,7 +25,7 @@ class bugWizard(models.TransientModel):
         if self.new_is_closed:
             vals['is_closed']=self.new_is_closed
         if self.wizard_user_id:
-            vals['user_id']=self.wizard_user_id
+            vals['user_id']=self.wizard_user_id.id
         if vals:
             self.bug_ids.write(vals)
         return True
