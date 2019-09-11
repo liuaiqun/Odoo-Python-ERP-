@@ -1,6 +1,6 @@
 <odoo>
     <data>
-    <record id="bug_app.model_todo_task" model="ir.model">
+    <record id="bug-manage.model_bm_bug" model="ir.model">
       <field name="website_form_access">True</field>
       <field name="website_form_label">创建Bug</field>
     </record>

@@ -8,14 +8,14 @@ class Main(http.Controller):
 
     @http.route('/hello',auth='public')
     def hello(self,**kwargs):
-        return request.render('bug-website.hello')
+        return request.render('bm-website.hello')
 
     @http.route('/bugs', auth='user', website=True)
     def index(self, **kwargs):
         Bugs = request.env['bm.bug']
         bugs = Bugs.search([])
         return request.render(
-            'bug-website.index',
+            'bm-website.index',
             {'bugs': bugs})
 
     @http.route('/bug/<model("bm.bug"):bug>',
@@ -23,11 +23,11 @@ class Main(http.Controller):
                 website=True)
     def detail(self, bug, **kwargs):
         return http.request.render(
-            'bug-website.detail',
+            'bm-website.detail',
             {'bug': bug})
 
     @http.route('/bug/add', auth="user", website=True)
     def add(self, **kwargs):
         users = request.env['res.users'].search([])
         return request.render(
-            'bug-website.add', {'users': users})
+            'bm-website.add', {'users': users})
