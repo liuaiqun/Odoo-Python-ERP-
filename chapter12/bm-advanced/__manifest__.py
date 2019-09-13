@@ -23,7 +23,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/bugs_adv.xml',
@@ -35,4 +35,8 @@
     'demo': [
         'demo/demo.xml',
     ],
+    
+    #避免卸载本模块后，点击“bug管理系统”菜单出错
+    'uninstall_hook': "uninstall_hook",
+    
 }

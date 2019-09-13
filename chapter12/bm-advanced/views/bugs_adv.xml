@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="bug-manage.form2">
+        <record model="ir.ui.view" id="bm-advanced.form2">
             <field name="name">bug表单2</field>
             <field name="model">bm.bug</field>
             <field name="inherit_id" ref="bug-manage.form"/>

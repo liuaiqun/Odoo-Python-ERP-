@@ -1,7 +1,7 @@
 <odoo>
     <data>
       <!-- 为看板视图做一个动作 -->
-      <record id="bm.view_kanban_bug"
+      <record id="bug-manage.action_window"
               model="ir.actions.act_window">
           <field name="view_mode">kanban,tree,form,calendar,graph,pivot</field>
       </record>
@@ -18,7 +18,7 @@
               <field name="kanban_state" />
               <field name="priority" />
               <field name="is_closed" />
-              <field name="follower_ids" />
+              <field name="follower_id" />
               <!-- 可选进度条  -->
               <progressbar
                   field="kanban_state"
@@ -34,20 +34,20 @@
                         oe_kanban_global_click">
                     <div class="o_dropdown_kanban dropdown">
                         <!-- 卡片右上方按钮在这里定义... -->
-                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                        <a role="button" class="dropdown-toggle btn" data-toggle="dropdown" href="#">
                         <span class="fa fa-ellipsis-v" aria-hidden="true"/>
                       </a>
                       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                         <!-- 如果需要可以编辑在这里编辑动作: -->
                         <t t-if="widget.editable">
-                          <li><a type="edit">编辑</a></li>
+                          <li><a role="button" type="edit">编辑</a></li>
                         </t>
                         <t t-if="widget.deletable">
-                          <li><a type="delete">删除</a></li>
+                          <li><a role="button" type="delete">删除</a></li>
                         </t>
                         <!-- 调用服务器端模型方法: -->
-                        <t t-if="!record.is_closed.value">
-                          <li><a name="do_toggle_done" type="object">关闭bug</a>
+                        <t t-if="!record.is_closed.raw_value">
+                          <li><a role="button" name="do_toggle_done" type="object">关闭bug</a>
                           </li>
                         </t>
                         <!-- 颜色选择项: -->
@@ -66,7 +66,7 @@
 
                           <div>
                             <strong>
-                              <a type="open"><field name="name" /></a>
+                              <a role="button" type="open"><field name="name" /></a>
                             </strong>
                           </div>
                           <ul>
@@ -88,6 +88,7 @@
                             'res.users', 'image_small', record.user_id.raw_value)"
                             t-att-title="record.user_id.value"
                             width="24" height="24"
+                            alt="user"
                             class="oe_kanban_avatar" />
                       </div>
                     </div>

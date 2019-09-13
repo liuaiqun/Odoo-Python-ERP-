@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_bm-advanced_bm-advanced,bm-advanced.bm-advanced,model_bm-advanced_bm-advanced,,1,0,0,0
+access_bm_advanced_01,bug_stage_by_group_user,model_bm_bug_stage,base.group_user,1,1,1,1
+access_bm_advanced_02,bug_tag_by_group_user,model_bm_bug_tag,base.group_user,1,1,1,1
